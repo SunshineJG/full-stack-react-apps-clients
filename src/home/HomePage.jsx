@@ -19,6 +19,15 @@ export const HomePage = () => {
     setRawMeals(updatedMeal);
   };
 
+  const onDeleteIngredient = async (name) => {
+    const response = await fetch(`http://localhost:8080/ingredients/${name}`, {
+      method: "delete",
+    });
+    const updatedIngredient = await response.json();
+    console.log("updated ingredients from homepage: ", updatedIngredient);
+    setIngredients(updatedIngredient);
+  };
+
   return (
     <div className="page-container">
       <div className="column">
@@ -32,6 +41,7 @@ export const HomePage = () => {
         <IngredientsList
           isLoading={isLoadingIngredients}
           ingredients={ingredients}
+          onDelete={onDeleteIngredient}
         />
         <Link to="/shopping-list">
           <button className="shopping-list-button list-container full-width">
