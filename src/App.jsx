@@ -1,9 +1,12 @@
 import { Routers } from "./Routers";
+import { useUser } from "./auth";
 
 function App() {
+  const { isLoading, user } = useUser();
+
   return (
     <div>
-      <Routers />
+      <Routers isLoading={isLoading} user={user} />
     </div>
   );
 }
