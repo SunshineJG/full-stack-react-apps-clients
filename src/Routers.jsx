@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GroupsListPage, GroupPage, CreateGroupPage } from "./groups";
-import { SignInPage, PrivateRoute } from "./auth";
+import { SignInPage, PrivateRoute, TestPage } from "./auth";
 import { NavBar } from "./navigation";
 
 const routes = [
@@ -22,6 +22,10 @@ const routes = [
     path: "/create-group",
     Component: CreateGroupPage,
     private: true,
+  },
+  {
+    path: "/test",
+    Component: TestPage,
   },
 ];
 

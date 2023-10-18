@@ -15,14 +15,14 @@ export const NavBar = ({ user }) => {
       <Link to="/">
         <h1 className="app-heading">Members-Only App</h1>
       </Link>
-      {user ? (
+      {user && (
         <>
           <button className="sign-out-button" onClick={onClickSignOut}>
             Sign Out
           </button>
           <p className="logged-in-as space-before">Logged in as {user.email}</p>
         </>
-      ) : null}
+      )}
     </nav>
   );
 };
